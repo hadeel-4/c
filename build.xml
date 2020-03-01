@@ -1,37 +1,32 @@
-<?xml version="1.0"?>
 <project default="compile">
 
-<property location="./src/ca" name="src.java.dir"/>
 
-<property location="C:\cal\src\cal\catest.java" name="src.test.dir"/>
-
-<property location="./target" name="result.dir"/>
-
-
-
-<property location="${result.dir}/classes" name="result.javaclasses.dir"/>
-
-<property location="${result.dir}/testclasses" name="result.testclasses.dir"/>
-
- <path id="NecessaryLibraries">
-
-<pathelement location="C:\Users\Best think co\.p2\pool\plugins\org.junit_4.12.0.v201504281640\junit.jar"/>
-
-<!--matcher-->
+    <property name="src.java.dir" location="./src/ca"/>
+    <property name="src.test.dir" location="./src/main"/>
+    <property name="result.dir" location="./target"/>
+    <property name="result.javaclasses.dir" location="${result.dir}/classes"/>
+    <property name="result.testclasses.dir" location="${result.dir}/testclasses"/>
 
 
-<pathelement location="C:\Users\Best think co\Downloads\jar_files.zip\hamcrest-2.1.jar"/>
 
-<!--<pathelement location="./UsedLibraries/jacocoant.jar"/>-->
 
-</path>
- <target name="compile">
+
+    <path id="NecessaryLibraries">
+        <pathelement location="./UsedLibraries/junit-4.12.jar"/>
+        <!--matcher-->
+        <pathelement location="./UsedLibraries/hamcrest-core-1.3.jar"/>
+        <!--<pathelement location="./UsedLibraries/jacocoant.jar"/>-->
+    </path>
+
+
+    <target name="compile">
         <mkdir dir="${result.javaclasses.dir}"/>
         <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true"  includeantruntime="false">
         </javac>
     </target>
 
-<target name="compile-testcases" depends="compile">
+
+    <target name="compile-testcases" depends="compile">
         <mkdir dir="${result.testclasses.dir}"/>
         <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
             <classpath>

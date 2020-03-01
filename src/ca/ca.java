@@ -2,24 +2,13 @@ package ca;
 
 public class ca {
 	
-	
-
-	public static int add(int x,int y) {
-		if(x>0 & y>0)
-			return x+y;
-		else 
-			return -1;
-			
+	public int add(int x,int y) {
+		return x+y;
 	}
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
-	
-		
 	}
 
 }
-
